@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="list-group">
+    <app-post-list-item *ngFor="let post of postList" [post]="post"></app-post-list-item>
+  </div>
+  <hr>
+
+  <form>
+    <div class="form-group">
+      <label for="title">Title: </label>
+      <input type="text" class="form-control" name="postTitle" [(ngModel)]="postTitle" id="title" placeholder="Post Title">
+    </div>
+    <div class="form-group">
+      <label for="content">Content: </label>
+      <textarea class="form-control" name="postContent" [(ngModel)]="postContent" id="content" rows="3" style="resize: none;" placeholder="Post Content"></textarea>
+    </div>
+    <div class="form-group text-center">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <input type="button" class="btn btn-primary" name="submit" value="Post" (click)="createNewPost()">
+        <input type="button" class="btn btn-secondary" name="clear" value="Clear" (click)="clear()">
+      </div>
+    </div>
+  </form>
+
+</div>
