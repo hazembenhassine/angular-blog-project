@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Post } from './post';
 import { PostService } from './post.service';
 
@@ -7,9 +7,9 @@ import { PostService } from './post.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'TheBlog';
-  postList: Post[] = this.postService.postList;
+  postList: Post[];
   postTitle = '';
   postContent = '';
 
@@ -26,6 +26,10 @@ export class AppComponent {
   clear() {
     this.postTitle = '';
     this.postContent = '';
+  }
+
+  ngOnInit() {
+    this.postList = this.postService.postList;
   }
 
 }
