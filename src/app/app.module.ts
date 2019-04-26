@@ -5,11 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PostListItemComponent } from './post-list-item/post-list-item.component';
 import { PostService } from './post.service';
+import { PostListComponent } from './post-list/post-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostListItemComponent
+    PostListItemComponent,
+    PostListComponent
   ],
   imports: [
     BrowserModule,
