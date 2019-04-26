@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PostListItemComponent } from './post-list-item/post-list-item.component';
+import { PostService } from './post.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { PostListItemComponent } from './post-list-item/post-list-item.component
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    PostService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

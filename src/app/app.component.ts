@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Post } from './post';
+import { PostService } from './post.service';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +9,17 @@ import { Post } from './post';
 })
 export class AppComponent {
   title = 'TheBlog';
-  postList: Post[] = [];
+  postList: Post[] = this.postService.postList;
   postTitle = '';
   postContent = '';
+
+  constructor(private postService: PostService) {}
 
   createNewPost() {
     if (this.postTitle === '' || this.postContent === '') {
       return;
     }
-    const newPost = new Post();
-    newPost.title = this.postTitle;
-    newPost.content = this.postContent;
-    this.postList.unshift(newPost);
+    this.postService.pushPost(this.postTitle, this.postContent);
     this.clear();
   }
 
